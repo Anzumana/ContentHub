@@ -1,4 +1,4 @@
 $('.shape').shape();
-$('.button').click(function(){
+$('#test').click(function(){
 	    $('.shape').shape('flip up');
 });
