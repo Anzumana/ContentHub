@@ -5,71 +5,78 @@
 	<link rel="stylesheet" type="text/css" href="bower_components/semantic-ui/dist/semantic.min.css">
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/semantic-ui/dist/semantic.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-animate.js"></script>
 	<script src="animations.js"></script>
 </head>
+<body ng-app="ngAnimate">
+	<div>
+		<h1> Contet Hub </h1>
+		<div class="ui segment">
+		<p> Were do you want to go? </p>
+		</div>
+		<a href="http://theprojectcast.com">TheProjectCast.com</a>
+		<br>
+		<a href="http://www.anzumana.com">Anzumana.com</a>
+		<br>
+	</div>
+	<br>
+	<div class="ui grid">
+		<div ng-init="friends = [
+			{name:'Anzumana.com', age:25, gender:'boy this is the sdklsjdksljd lkjsdlksdj slkdjsd lkjsd lksdjklsdj'},
+			{name:'Anzumana.com', age:25, gender:'boy'},
+			{name:'Anzumana.com', age:25, gender:'boy'},
+			{name:'Anzumana.com', age:25, gender:'boy'},
+			{name:'MyProject', age:60, gender:'girl'}
+		]">
+			<p>Currently {{friends.length}} active Projects.<o>
+			<input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+			<div class="example-animate-container">
+				<div class="ui grid">
+					<div class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
+						<div class="four wide column">
+							<div id="test{{$index}}"class="ui people shape">
+								<div class="sides">
+									<div class="side">
+										<div class="ui card">
+											<div class="content">
+												<div class="header">Steve Jobes</div>
+												<div class="meta">
+													<a>Acquaintances</a>
+												</div>
+												<div class="description">
+													{{friend.gender}}
+													[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+												</div>
+											</div>
+											<div class="extra content">
+												<span class="right floated">
+													Joined in 2014
+												</span>
+												<span>
+													<i class="user icon"></i>
+													151 Friends
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="side active">
+										<div class="ui card">
+											<div class="image">
+												<img src="images/avatar/large/stevie.jpg">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="animate-repeat" ng-if="results.length == 0">
+				<strong>No results found...</strong>
+			</div>
+		</div>
+	</div>
 <body>
-<h1> Contet Hub </h1>
-<div class="ui segment">
-<p> Were do you want to go? </p>
-</div>
-<a href="http://theprojectcast.com">TheProjectCast.com</a>
-<br>
-<a href="http://www.anzumana.com">Anzumana.com</a>
-<div class="ui people shape">
-  <div class="sides">
-    <div class="side">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/avatar/large/steve.jpg">
-        </div>
-        <div class="content">
-          <div class="header">Steve Jobes</div>
-          <div class="meta">
-            <a>Acquaintances</a>
-          </div>
-          <div class="description">
-            Steve Jobes is a fictional character designed to resemble someone familiar to readers.
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="right floated">
-            Joined in 2014
-          </span>
-          <span>
-            <i class="user icon"></i>
-            151 Friends
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="side active">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/avatar/large/stevie.jpg">
-        </div>
-        <div class="content">
-          <a class="header">Stevie Feliciano</a>
-          <div class="meta">
-            <span class="date">Joined in 2014</span>
-          </div>
-          <div class="description">
-            Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            22 Friends
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="ui large buttons">
-	  <button id="test" class="ui button">One</button>
-		  <div class="or"></div>
-			  <button class="ui button">Two</button>
-</div>
-<body>
-	</html>
+</html>
