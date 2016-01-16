@@ -9,3 +9,4 @@ $('#test').click(function(){
 		$('.shape').shape();
 	    $('.shape').shape('flip up');
 });
+    console.log( "ready!2" );
