@@ -11,23 +11,27 @@
 </head>
 <body ng-app="ngAnimate">
 	<div>
-		<h1> Contet Hub </h1>
+		<h1> Content Hub </h1>
 		<div class="ui segment">
 		<p> Were do you want to go? </p>
 		</div>
-		<a href="http://theprojectcast.com">TheProjectCast.com</a>
-		<br>
 		<a href="http://www.anzumana.com">Anzumana.com</a>
 		<br>
 	</div>
 	<br>
 	<div class="ui grid">
 		<div ng-init="friends = [
-			{name:'Could You Spell That',  about:'Let your Mac read numbers back to you'},
-			{name:'UnderDevelopment', about:'Check my Blog or Twitter for Updates'}
+			{name:'Could you spell that', about:'
+This is a little Mac Service that helps when you have to put in a bunch of numbers.
+Highlight any sequence of numbers and let your mac read them back to you.
+I use this service a lot to make sure that i did everything correct.',
+desc_small:'Mac Service',
+platforms:'mac only',
+imagepath:'CouldYouSpellThat.png',
+download_url:'https://github.com/Anzumana/CouldYouSpellThat/blob/master/CouldYouSpellThat.zip?raw=true'}
 		]">
-			<p>Currently {{friends.length-1}} finished Projects.Enjoy<o>
-			<input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+			<p>Currently {{friends.length}} finished Project.Enjoy<o>
+			<input type="search" ng-model="q" placeholder="filter Projects..." aria-label="filter Projects" />
 			<div class="example-animate-container">
 				<div class="ui grid">
 					<div class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
@@ -37,30 +41,31 @@
 									<div class="side">
 										<div class="ui card">
 											<div class="content">
-												<div class="header">Steve Jobes</div>
+												<div class="header">{{friend.name}}</div>
 												<div class="meta">
-													<a>Acquaintances</a>
+													{{friend.desc_small}}
 												</div>
 												<div class="description">
 													{{friend.about}}
+													<a href='{{friend.download_url}}'>Download the Service</a> or
+													<a href='{{friend.link}}'>Source Code for the Servie in on my Github</a>
 												</div>
 											</div>
 											<div class="extra content">
 												<span class="right floated">
-													created with <i  class ="heart icon"></i>
+													created with <i  class ="heart icon"></i>Anzumana
 												</span>
 												<span>
-													<i class="user icon"></i>
-													151 Friends
+													<i class="tags icon"></i>
+													{{friend.platforms}}
 												</span>
 											</div>
 										</div>
 									</div>
 									<div class="side active">
 										<div class="ui card">
-											<div class="header">{{friend.name}}</div>
 											<div class="image">
-												<img src="images/avatar/large/stevie.jpg">
+												<img src="images/{{friend.imagepath}}">
 											</div>
 										</div>
 									</div>
