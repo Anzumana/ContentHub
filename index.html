@@ -23,13 +23,10 @@
 	<br>
 	<div class="ui grid">
 		<div ng-init="friends = [
-			{name:'Anzumana.com', age:25, gender:'boy this is the sdklsjdksljd lkjsdlksdj slkdjsd lkjsd lksdjklsdj'},
-			{name:'Anzumana.com', age:25, gender:'boy'},
-			{name:'Anzumana.com', age:25, gender:'boy'},
-			{name:'Anzumana.com', age:25, gender:'boy'},
-			{name:'MyProject', age:60, gender:'girl'}
+			{name:'Could You Spell That',  about:'Let your Mac read numbers back to you'},
+			{name:'UnderDevelopment', about:'Check my Blog or Twitter for Updates'}
 		]">
-			<p>Currently {{friends.length}} active Projects.<o>
+			<p>Currently {{friends.length-1}} finished Projects.Enjoy<o>
 			<input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
 			<div class="example-animate-container">
 				<div class="ui grid">
@@ -45,13 +42,12 @@
 													<a>Acquaintances</a>
 												</div>
 												<div class="description">
-													{{friend.gender}}
-													[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+													{{friend.about}}
 												</div>
 											</div>
 											<div class="extra content">
 												<span class="right floated">
-													Joined in 2014
+													created with <i  class ="heart icon"></i>
 												</span>
 												<span>
 													<i class="user icon"></i>
@@ -62,6 +58,7 @@
 									</div>
 									<div class="side active">
 										<div class="ui card">
+											<div class="header">{{friend.name}}</div>
 											<div class="image">
 												<img src="images/avatar/large/stevie.jpg">
 											</div>
